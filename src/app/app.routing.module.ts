@@ -6,6 +6,7 @@ import { IdentifyComponent } from './identify/identify.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
 import { QuestionaryComponent } from './questionary/questionary.component';
 import { EndingComponent } from './ending/ending.component';
+import { AdminComponent } from './admin/admin.component'
 
 import { AuthGuard } from './guards/auth.guard';
 
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
    { path: 'identify', component: IdentifyComponent, canActivate: [AuthGuard] },
    { path: 'tutorial', component: TutorialComponent, canActivate: [AuthGuard] },
    { path: 'questionary', component: QuestionaryComponent, canActivate: [AuthGuard] },
-   { path: 'ending', component: EndingComponent }
+   { path: 'ending', component: EndingComponent },
+   { path: 'admin', component: AdminComponent }
 ];
 
 @NgModule({
