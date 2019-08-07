@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="card shadow p-3 mb-5 bg-write rounded">
+    <div class="card-title">
+      <h1 class="display-1 text-center">affinity</h1>
+    </div>
+    <div class="card-body">
+      <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)">
+
+          <div class="form-group">
+            <label for="experiencia" >
+              Você já programou alguma vez?
+              <small class="form-text text-muted">Mesmo que seja só um pouquinho.</small>
+            </label>
+            
+            <div class="form-check">
+              <input [(ngModel)]="person.programador" #xp="ngModel" value="s" name="xp" type="radio" class="form-check-input" required />
+              <label class="form-check-label" for="sim">Sim</label>
+            </div>
+            <div class="form-check">
+              <input [(ngModel)]="person.programador" #xp="ngModel" value="n" name="xp" type="radio" class="form-check-input" required />
+              <label class="form-check-label" for="nao">Não</label>
+            </div>
+          </div>
+
+          <div *ngIf="xp.invalid && userForm.submitted" [ngClass] = "'alert alert-danger'"><small>
+            Precisamos que preencha tudo.
+          </small></div>
+          
+          <div class="form-group">
+            <label for="idade">Qual a sua idade.</label>
+            <input [(ngModel)]="person.idade" #idade="ngModel" name="idade" type="number" min="16" max="99" class="form-control" required />
+          </div>
+
+          <div *ngIf="idade.invalid && userForm.submitted" [ngClass] = "'alert alert-danger'"><small>
+            Idade requerida.
+          </small></div>
+
+          <div class="form-group">
+            <label for="genero" >Qual o seu genero?</label>
+            
+            <div class="form-check">
+              <input [(ngModel)]="person.genero" #gn="ngModel" name="gn" type="radio" value="m" class="form-check-input" required />
+              <label class="form-check-label" for="masculino">Masculino</label>
+            </div>
+            <div class="form-check">
+              <input [(ngModel)]="person.genero" #gn="ngModel" name="gn" type="radio" value="f" class="form-check-input" required />
+              <label class="form-check-label" for="feminino">Feminino</label>
+            </div>
+
+            <div *ngIf="gn.invalid && userForm.submitted" [ngClass] = "'alert alert-danger'"><small>
+              Precisamos que preencha tudo.
+            </small></div>
+          </div>
+
+          <div class="form-group">
+            <label for="educacao">Qual é o grau mais alto de educação que você completou?</label>
+            <select [(ngModel)]="person.formacao" #edu="ngModel" name="edu" class="form-control" id="educacao" required>
+              <option>Fundamental</option>
+              <option>Médio</option>
+              <option>Técnico</option>
+              <option>Graduação</option>
+              <option>Especialização</option>
+              <option>Mestrado</option>
+              <option>Doutorado</option>
+            </select>
+            
+            <div *ngIf="edu.invalid && userForm.submitted" [ngClass] = "'alert alert-danger'"><small>
+              Precisamos que preencha tudo.
+            </small></div>
+
+            <hr />
+            <button class="btn btn-primary" type="submit">Enviar</button>
+          </div>
+      </form>
+    </div>
+</div>
+</div>

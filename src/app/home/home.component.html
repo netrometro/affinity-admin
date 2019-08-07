@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="card shadow p-3 mb-5 bg-write rounded">
+    <div class="card-title">
+      <h1 class="display-1 text-center">affinity</h1>
+    </div>
+    <div class="card-body">
+      <div class="autorizacao overflow-auto">
+        <h5>Bem-vindo(a) à pesquisa.</h5>
+        <p><small>Primeiramente, quero agradecer pelo seu interesse. Antes do início do estudo, é importante que você seja informado sobre o procedimento. Portanto, gostaríamos que você lesse atentamente esta carta informativa.</small></p>
+        <h6>Objetivo do estudo</h6>
+        <p><small>O objetivo do estudo é investigar se esta ferramenta consegue prever o desempenho futuro no aprendizado de computação através da percepção na afinidade em identificar padrões. Alertamos que, o que está sendo testada é a ferramenta e não você. Queremos sua ajudar para descobrir se ela serve ou não para ajudar os futuros estudantes de programação.</small></p>
+        <h6>Procedimentos</h6>
+        <p><small>Lhe apresentaremos uma série de peças de dominó que possuem um padrão esperado. Na próxima página teremos vários exemplos. Uma das peças estará faltando. Para cada sequência, você será questionado sobre qual peça a completa.</small></p>
+        <h6>Participação voluntária</h6>
+        <p><small>Não existem consequências caso você decida agora não participar deste estudo. Durante a pesquisa, você é livre para parar de participar a qualquer momento sem dar uma razão para agir assim.</small></p>
+        <h6>Sua privacidade está garantida</h6>
+        <p><small>Suas informações pessoais (sobre quem você é) permanecem confidenciais e não serão compartilhadas sem o seu consentimento explícito. Os seus dados de pesquisa serão analisados pelos pesquisadores que coletaram as informações. Os dados de pesquisa publicados em revistas científicas serão anônimos e não podem ser rastreados até você como um indivíduo. Dados completamente anônimos podem se tornar publicamente acessíveis.</small></p>
+        <h6>Duração</h6>
+        <p><small>A pesquisa deve tormar aproximadamente 25 minutos para ser concluída.</small></p>
+        <h6>Mais informações</h6>
+        <p><small>Se você tiver dúvidas sobre este estudo, entre em contato com o pesquisador responsável: Ewerton Mendonça (ewerton.mendonca.professor@gmail.com).</small></p>
+        <hr />
+        <p><small>Ao clicar no botão abaixo, você reconhece que:<br />
+        - Você tem 18 anos ou mais;<br />
+        - Você leu e entendeu a carta informativa;<br />
+        - Você concorda em participar deste estudo e concorda com o uso dos dados coletados;<br />
+        - Você se reserva o direito de abandonar sua participação do estudo a qualquer momento sem fornecer qualquer motivo.</small></p>
+      </div>
+      <hr />
+
+      <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        <div class="form-group">
+            <label for="matricula">Por favor, digite sua matricula. (requerido)</label>
+            <input name="matricula" #mat="ngModel" [(ngModel)]="matricula" placeholder="Matricula" class="form-control" required />
+
+            <div *ngIf="mat.invalid && mat.touched" class="validation-error">
+              <small>É precisa colocar sua matrícula para continuar.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Eu concordo. Comece o estudo.</button>
+        </div>
+      </form>
+
+
+
+      <!--div class="row">
+        <div class="col-sm-4">
+            <label for="matricula">Por favor, digite sua matricula. (requerido)</label>
+            <p><input [(ngModel)]="matricula" #mat="ngModel" name="mat" type="text" class="form-control" required /></p>
+            
+            <button (click)="login()" [disabled]="mat.invalid" type="submit" class="btn btn-primary">
+              Eu concordo, comece o estudo.
+            </button>
+        </div>
+      </div-->
+      <br />
+      <p><a href="https://disneyworld.disney.go.com/pt-br/" class="btn btn-danger">Eu não concordo. Não desejo participar.</a></p>
+  </div>
+</div>
