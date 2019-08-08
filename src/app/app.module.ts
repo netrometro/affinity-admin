@@ -24,7 +24,6 @@ import { AdminGuard } from './guards/admin.guard';
 
 import { AuthService } from './auth.service';
 import { IdentifyService } from './identify/identify.service';
-import { AdminService } from './admin/admin.service';
 
 @NgModule({
   imports:      [ 
@@ -52,8 +51,7 @@ import { AdminService } from './admin/admin.service';
     AuthGuard,
     AdminGuard,
     AuthService,
-    IdentifyService,
-    AdminService
+    IdentifyService
   ]
 })
 
