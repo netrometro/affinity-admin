@@ -9,20 +9,22 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { environment } from '.././environments/environment';
 
+import { AppRoutingModule } from './app.routing.module';
+import { QuestionaryModule } from './questionary/questionary.module';
+import { AdminModule } from './admin/admin.module';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { IdentifyComponent } from './identify/identify.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
-import { QuestionaryModule } from './questionary/questionary.module';
 import { EndingComponent } from './ending/ending.component';
-import { AdminComponent } from './admin/admin.component';
-
-import { AppRoutingModule } from './app.routing.module';
-import { AdminModule } from './admin/admin.module';
 
 import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
+
 import { AuthService } from './auth.service';
 import { IdentifyService } from './identify/identify.service';
+import { AdminService } from './admin/admin.service';
 
 @NgModule({
   imports:      [ 
@@ -31,24 +33,27 @@ import { IdentifyService } from './identify/identify.service';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule, 
+    AngularFireAuthModule,
+    AppRoutingModule,
     QuestionaryModule,
-    AppRoutingModule
+    AdminModule
   ],
   declarations: [ 
     AppComponent, 
     HomeComponent, 
     IdentifyComponent, 
     TutorialComponent, 
-    EndingComponent, AdminComponent
+    EndingComponent
   ],
   bootstrap:    [ 
     AppComponent 
   ],
   providers: [
-    AuthService,
     AuthGuard,
-    IdentifyService
+    AdminGuard,
+    AuthService,
+    IdentifyService,
+    AdminService
   ]
 })
 
